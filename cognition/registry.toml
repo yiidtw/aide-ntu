@@ -1,0 +1,34 @@
+# Registry: agents that have subscribed to callbacks from this instance.
+# Each subscriber declares what they care about (filter) and where to deliver (callback).
+# Either side can unsubscribe:
+#   - Provider removes the [[subscribers]] entry here
+#   - Subscriber removes their [[subscriptions]] entry in their own subscriptions.toml
+# Provider MUST check this file before opening callback issues.
+
+[[subscribers]]
+instance = "ee5122-formal.ydwu"
+callback = "yiidtw/aide-ee5122-formal"
+filter = { cool_id = 57171, course_code = "EE5122" }
+registered_at = "2026-03-31T21:00:00Z"
+registered_via = "seed"
+
+[[subscribers]]
+instance = "eee5023-socv.ydwu"
+callback = "yiidtw/aide-eee5023-socv"
+filter = { cool_id = 61236, course_code = "EEE5023" }
+registered_at = "2026-03-31T21:00:00Z"
+registered_via = "seed"
+
+[[subscribers]]
+instance = "ee5072-rl.ydwu"
+callback = "yiidtw/aide-ee5072-rl"
+filter = { cool_id = 60106, course_code = "EEE5072" }
+registered_at = "2026-03-31T21:00:00Z"
+registered_via = "seed"
+
+[[subscribers]]
+instance = "ee5184-ml.ydwu"
+callback = "yiidtw/aide-ee5184-ml"
+filter = { cool_id = 59878, course_code = "EE5184" }
+registered_at = "2026-03-31T21:00:00Z"
+registered_via = "seed"

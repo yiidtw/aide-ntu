@@ -8,14 +8,17 @@ set -euo pipefail
 DRY_RUN=false
 [[ "${1:-}" == "--dry-run" ]] && DRY_RUN=true
 
+INST_DIR="${AIDE_INSTANCE_DIR:-$HOME/.aide/instances/ntu.yiidtw}"
 SCAN_DB="$HOME/claude_projects/NTUGIEE/2026Spring/cool_scan.db"
-STATE_FILE="$HOME/.aide/instances/ntu.yiidtw/cognition/cool-watch-state.json"
+STATE_FILE="$INST_DIR/cognition/cool-watch-state.json"
+REGISTRY_FILE="$INST_DIR/cognition/registry.toml"
 
-# Course → aide instance GitHub repo mapping (updated 2026-03-31)
-# EE5184 → yiidtw/aide-ee5184-ml
-# EE5122 → yiidtw/aide-ee5122-formal
-# EEE5023 → yiidtw/aide-eee5023-socv
-# EEE5072 → yiidtw/aide-ee5072-rl
+# Course → repo mapping is now read from registry.toml (no more hardcoding)
+if [[ ! -f "$REGISTRY_FILE" ]]; then
+  echo "ERROR: registry.toml not found at $REGISTRY_FILE"
+  echo "No subscribers registered. Nothing to do."
+  exit 0
+fi
 
 # ─── Load previous state ───
 if [[ -f "$STATE_FILE" ]]; then
@@ -40,11 +43,11 @@ echo "Checking submissions..."
 SUBMISSIONS=$(aide-skill cool submissions 2>&1)
 
 # ─── Python: diff against previous state, create issues ───
-export PREV_STATE ANNOUNCEMENTS SUBMISSIONS SCAN_DB
+export PREV_STATE ANNOUNCEMENTS SUBMISSIONS SCAN_DB REGISTRY_FILE
 $DRY_RUN && export DRY_RUN="true" || export DRY_RUN="false"
 
 NEW_STATE=$(python3 << 'PYEOF'
-import json, os, subprocess, sqlite3, sys
+import json, os, subprocess, sqlite3, sys, re as _re
 from datetime import datetime
 
 dry_run = "--dry-run" in sys.argv or os.environ.get("DRY_RUN") == "true"
@@ -58,19 +61,50 @@ announcements = os.environ.get("ANNOUNCEMENTS", "")
 submissions = os.environ.get("SUBMISSIONS", "")
 scan_db = os.environ.get("SCAN_DB", "")
 
-course_repo = {
-    "EE5184": "yiidtw/aide-ee5184-ml",
-    "EE5122": "yiidtw/aide-ee5122-formal",
-    "EEE5023": "yiidtw/aide-eee5023-socv",
-    "EEE5072": "yiidtw/aide-ee5072-rl",
-}
+# ─── Read registry.toml → build course_repo and course_cool_id dynamically ───
+registry_file = os.environ.get("REGISTRY_FILE", "")
+course_repo = {}     # course_code → callback GitHub repo
+course_cool_id = {}  # course_code → COOL course ID
 
-course_cool_id = {
-    "EE5184": 59878,
-    "EE5122": 57171,
-    "EEE5023": 61236,
-    "EEE5072": 60106,
-}
+if registry_file and os.path.exists(registry_file):
+    # Minimal TOML parser for [[subscribers]] with filter.cool_id and filter.course_code
+    current = {}
+    with open(registry_file) as f:
+        for line in f:
+            line = line.strip()
+            if line == "[[subscribers]]":
+                if current.get("course_code") and current.get("callback"):
+                    course_repo[current["course_code"]] = current["callback"]
+                    if current.get("cool_id"):
+                        course_cool_id[current["course_code"]] = current["cool_id"]
+                current = {}
+            elif "=" in line and not line.startswith("#"):
+                key, val = line.split("=", 1)
+                key = key.strip()
+                val = val.strip().strip('"')
+                if key == "callback":
+                    current["callback"] = val
+                elif key == "instance":
+                    current["instance"] = val
+                # Parse filter inline table: { cool_id = 57171, course_code = "EE5122" }
+                elif key == "filter":
+                    m = _re.search(r'cool_id\s*=\s*(\d+)', val)
+                    if m:
+                        current["cool_id"] = int(m.group(1))
+                    m = _re.search(r'course_code\s*=\s*"(\w+)"', val)
+                    if m:
+                        current["course_code"] = m.group(1)
+        # Last entry
+        if current.get("course_code") and current.get("callback"):
+            course_repo[current["course_code"]] = current["callback"]
+            if current.get("cool_id"):
+                course_cool_id[current["course_code"]] = current["cool_id"]
+
+    print(f"Registry: {len(course_repo)} subscribers loaded")
+    for code, repo in course_repo.items():
+        print(f"  {code} (cool_id={course_cool_id.get(code, '?')}) → {repo}")
+else:
+    print("WARNING: no registry.toml found, no subscribers")
 
 # Reverse: cool_id → course_code
 id_to_code = {v: k for k, v in course_cool_id.items()}
