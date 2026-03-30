@@ -1,0 +1,46 @@
+[agent]
+name = "ntu-student"
+version = "0.1.0"
+description = "NTU student assistant — COOL LMS + NTU mail"
+author = "ydwu"
+
+[persona]
+file = "persona.md"
+
+[skills.cool]
+script = "skills/cool.sh"
+description = "NTU COOL (Canvas LMS) — courses, assignments, grades, announcements"
+usage = "cool [courses|assignments|grades|todos|summary|announcements|scan]"
+schedule = "0 8 * * *"
+env = ["EMAIL_USER", "EMAIL_PASS", "COOL_BASE_URL", "ADFS_BASE_URL"]
+
+[skills.mail]
+script = "skills/mail.sh"
+description = "NTU mail — check inbox, read, search, send"
+usage = "mail [check|unread|read N|search Q|send TO SUBJ BODY]"
+schedule = "0 */4 * * *"
+env = ["EMAIL_USER", "EMAIL_PASS", "POP3_HOST", "SMTP_HOST"]
+
+[skills.briefing]
+script = "skills/briefing.sh"
+description = "Daily briefing — scan todos + assignments, email summary"
+usage = "briefing [EMAIL]"
+schedule = "0 7 * * *"
+env = ["EMAIL_USER", "EMAIL_PASS", "COOL_BASE_URL", "ADFS_BASE_URL", "RESEND_API_KEY", "BRIEFING_TO", "POP3_HOST"]
+
+[skills.cool-watch]
+script = "skills/cool-watch.sh"
+description = "Watch COOL for new announcements/assignments/grades → open GitHub issues in course repos"
+usage = "cool-watch [--dry-run]"
+schedule = "0 */4 * * *"
+env = ["EMAIL_USER", "EMAIL_PASS", "COOL_BASE_URL", "ADFS_BASE_URL"]
+
+[expose]
+telegram = { token_env = "TELEGRAM_BOT_TOKEN" }
+
+[seed]
+dir = "seed/"
+
+[env]
+required = ["EMAIL_USER", "EMAIL_PASS"]
+optional = ["COOL_BASE_URL", "ADFS_BASE_URL", "POP3_HOST", "SMTP_HOST", "EMAIL_DOMAIN", "SMTP_USER", "SMTP_PASS", "POP3_USER", "POP3_PASS", "RESEND_API_KEY", "BRIEFING_TO"]

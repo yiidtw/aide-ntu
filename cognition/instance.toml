@@ -1,0 +1,19 @@
+name = "ntu.yiidtw"
+agent_type = "ntu-student"
+created_at = "2026-03-17T19:03:16.069806Z"
+email = "ntu-student@aide.sh"
+role = "NTU student assistant — COOL LMS + NTU mail"
+domains = []
+github_repo = "yiidtw/aide-ntu"
+uuid = "52c9b351-7984-4058-8ef8-1b96bca10358"
+machine_id = "Mac.hitronhub.home"
+
+[[cron]]
+schedule = "0 7 * * *"
+skill = "briefing"
+last_run = "2026-03-29T23:00:40.092948Z"
+
+[[cron]]
+schedule = "0 */4 * * *"
+skill = "cool-watch"
+last_run = "2026-03-30T20:00:38.926127Z"

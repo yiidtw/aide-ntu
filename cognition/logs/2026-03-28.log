@@ -1,0 +1,6 @@
+[20:41:23] mcp-exec: briefing 
+[20:41:23] mcp-exec-result: briefing → FAILED (exit 2)
+[23:00:08] cron: briefing triggered
+[23:00:10] cron-result: briefing → ok (exit 0)
+[23:00:10] cron-stdout: briefing: Generating daily briefing for yiidtw@gmail.com...
+Briefing sent to yiidtw@gmail.com from yiidtw.ntu@aide.sh

@@ -1,0 +1,41 @@
+[12:04:47] exec: cool scan
+[12:04:47] exec-result: cool scan → FAILED (exit 1)
+[12:06:00] exec: cool scan
+[12:06:00] exec-result: cool scan → FAILED (exit 1)
+[12:15:53] exec: cool courses
+[12:15:55] exec-result: cool courses → FAILED (exit 1)
+[12:16:44] exec: cool courses
+[12:16:45] exec-result: cool courses → FAILED (exit 1)
+[12:17:05] exec: cool courses
+[12:17:06] exec-result: cool courses → FAILED (exit 1)
+[12:17:43] exec: cool courses
+[12:17:44] exec-result: cool courses → FAILED (exit 1)
+[13:07:54] exec: cool courses
+[13:07:54] exec-result: cool courses → FAILED (exit 1)
+[13:08:34] exec: cool courses
+[13:08:36] exec-result: cool courses → FAILED (exit 1)
+[13:09:10] exec: cool courses
+[13:09:11] exec-result: cool courses → ok (exit 0)
+[13:10:53] exec: mail check
+[13:10:54] exec-result: mail check → ok (exit 0)
+[13:16:48] exec: cool assignments
+[13:16:51] exec-result: cool assignments → ok (exit 0)
+[13:46:12] exec: cool assignments
+[13:46:15] exec-result: cool assignments → ok (exit 0)
+[15:17:39] exec: mail check
+[15:17:40] exec-result: mail check → ok (exit 0)
+[15:19:06] exec: mail read 1064
+[15:19:07] exec-result: mail read 1064 → ok (exit 0)
+[15:26:17] exec: easychair summary
+[15:26:19] exec-result: easychair summary → ok (exit 0)
+[16:36:15] telegram: bot started
+[16:36:15] github: poller started for yiidtw/aide-ntu
+[17:02:03] telegram: bot started
+[17:02:03] github: poller started for yiidtw/aide-ntu
+[17:23:33] telegram: bot started
+[17:23:33] github: poller started for yiidtw/aide-ntu
+[17:26:45] telegram: bot started
+[23:00:45] cron: briefing triggered
+[23:00:53] cron-result: briefing → ok (exit 0)
+[23:00:53] cron-stdout: briefing: Generating daily briefing for yiidtw@gmail.com...
+Briefing sent to yiidtw@gmail.com from yiidtw.ntu@aide.sh

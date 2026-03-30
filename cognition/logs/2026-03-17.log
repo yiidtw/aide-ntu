@@ -1,0 +1,15 @@
+[19:03:16] created from image 'aide/ntu-student'
+[19:29:44] prompt: 這週有什麼作業？
+[19:30:41] prompt: 這週有什麼作業？
+[19:30:41] prompt-exec: cool assignments → fail (exit 1)
+[19:31:03] prompt: 幫我寄 briefing
+[19:31:03] prompt-exec: briefing → fail (exit 1)
+[19:31:43] prompt: 幫我寄 briefing
+[19:31:43] prompt-exec: briefing → fail (exit 1)
+[19:32:27] prompt: 寄 briefing 給我
+[19:32:35] prompt-exec: briefing → ok (exit 0)
+[19:45:15] inbox: from=r14943151@ntu.edu.tw subject="test inbox polling"
+[23:00:15] cron: briefing triggered
+[23:00:22] cron-result: briefing → ok (exit 0)
+[23:00:22] cron-stdout: briefing: Generating daily briefing for yiidtw@gmail.com...
+Briefing sent to yiidtw@gmail.com from yiidtw.ntu@aide.sh

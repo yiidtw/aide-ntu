@@ -1,0 +1,4 @@
+[23:00:38] cron: briefing triggered
+[23:00:40] cron-result: briefing → ok (exit 0)
+[23:00:40] cron-stdout: briefing: Generating daily briefing for yiidtw@gmail.com...
+Briefing sent to yiidtw@gmail.com from yiidtw.ntu@aide.sh

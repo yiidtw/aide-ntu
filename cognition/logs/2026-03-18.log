@@ -1,0 +1,11 @@
+[02:57:13] telegram: bot started
+[02:58:15] telegram-msg: from=unknown text=Bro 收信
+[02:58:40] telegram-msg: from=unknown text=/start 收信
+[03:03:25] telegram: bot started
+[03:11:18] telegram-msg: from=unknown text=Bro 收信
+[03:11:18] telegram-prompt: Bro 收信
+[03:11:31] telegram-prompt-result: ok
+[23:00:21] cron: briefing triggered
+[23:00:29] cron-result: briefing → ok (exit 0)
+[23:00:29] cron-stdout: briefing: Generating daily briefing for yiidtw@gmail.com...
+Briefing sent to yiidtw@gmail.com from yiidtw.ntu@aide.sh
