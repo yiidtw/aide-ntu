@@ -11,11 +11,11 @@ DRY_RUN=false
 SCAN_DB="$HOME/claude_projects/NTUGIEE/2026Spring/cool_scan.db"
 STATE_FILE="$HOME/.aide/instances/ntu.yiidtw/cognition/cool-watch-state.json"
 
-# Course → GitHub repo mapping is in the Python section below
-# EE5184 → yiidtw/ee5184-ml-2026-note
-# EE5122 → yiidtw/ee5122-formal-2026-note
-# EEE5023 → yiidtw/eee5023-socv-2026-note
-# EEE5072 → yiidtw/ee5072-rl-note
+# Course → aide instance GitHub repo mapping (updated 2026-03-31)
+# EE5184 → yiidtw/aide-ee5184-ml
+# EE5122 → yiidtw/aide-ee5122-formal
+# EEE5023 → yiidtw/aide-eee5023-socv
+# EEE5072 → yiidtw/aide-ee5072-rl
 
 # ─── Load previous state ───
 if [[ -f "$STATE_FILE" ]]; then
@@ -59,10 +59,10 @@ submissions = os.environ.get("SUBMISSIONS", "")
 scan_db = os.environ.get("SCAN_DB", "")
 
 course_repo = {
-    "EE5184": "yiidtw/ee5184-ml-2026-note",
-    "EE5122": "yiidtw/ee5122-formal-2026-note",
-    "EEE5023": "yiidtw/eee5023-socv-2026-note",
-    "EEE5072": "yiidtw/ee5072-rl-note",
+    "EE5184": "yiidtw/aide-ee5184-ml",
+    "EE5122": "yiidtw/aide-ee5122-formal",
+    "EEE5023": "yiidtw/aide-eee5023-socv",
+    "EEE5072": "yiidtw/aide-ee5072-rl",
 }
 
 course_cool_id = {
