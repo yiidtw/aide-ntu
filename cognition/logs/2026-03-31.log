@@ -85,3 +85,10 @@ Registry: 4 subscribers loaded
 [16:47:40] exec-result: cool-watch --dry-run → ok (exit 0)
 [16:48:20] exec: cool-watch --dry-run
 [16:48:33] exec-result: cool-watch --dry-run → ok (exit 0)
+[19:23:41] telegram: bot started
+[19:31:52] github-comment: #4 by yiidtw — Based on the code and hostname, here's the ack:
+
+🤖 **ntu.yiidtw(Mac.hitronhub.home:52c9)**
+
+Format c...
+[19:32:20] github-comment-result: #4/4100882630 → ok
