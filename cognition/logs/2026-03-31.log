@@ -1,0 +1,81 @@
+[00:00:22] cron: cool-watch triggered
+[00:00:33] cron-result: cool-watch → ok (exit 0)
+[00:00:33] cron-stdout: cool-watch: Running COOL scan...
+Scan #31: 6 courses, 11 assignments, 114 files
+--- No changes since last scan ---
+
+Checking announcements...
+
+Checking submissions...
+
+State saved to /Users/ydwu/.aide/instances/ntu.yiidtw/cognition/cool-watch-state.json
+Registry: 4 subscribers loaded
+  EE5122 (cool_id=57171) → yiidtw/aide-ee5122-formal
+  EEE5023 (cool_id=61236) → yiidtw/aide-eee5023-socv
+  EEE5072 (cool_id=60106) → yiidtw/aide-ee5072-rl
+  EE5184 (cool_id=59878) → yiidtw/aide-ee5184-ml
+[04:00:26] cron: cool-watch triggered
+[04:00:37] cron-result: cool-watch → ok (exit 0)
+[04:00:37] cron-stdout: cool-watch: Running COOL scan...
+Scan #32: 6 courses, 11 assignments, 114 files
+--- No changes since last scan ---
+
+Checking announcements...
+
+Checking submissions...
+
+State saved to /Users/ydwu/.aide/instances/ntu.yiidtw/cognition/cool-watch-state.json
+Registry: 4 subscribers loaded
+  EE5122 (cool_id=57171) → yiidtw/aide-ee5122-formal
+  EEE5023 (cool_id=61236) → yiidtw/aide-eee5023-socv
+  EEE5072 (cool_id=60106) → yiidtw/aide-ee5072-rl
+  EE5184 (cool_id=59878) → yiidtw/aide-ee5184-ml
+[08:00:28] cron: cool-watch triggered
+[08:00:43] cron-result: cool-watch → ok (exit 0)
+[08:00:43] cron-stdout: cool-watch: Running COOL scan...
+Scan #33: 6 courses, 11 assignments, 118 files
+--- Changes since 2026-03-31 04:00:28 ---
+  New/changed files (5):
+    正規方法 (EE5122): 2026-03-31_FM_04_CPA_SP_updated.pdf
+    正規方法 (EE5122): 2026-03-31_FM_05_Predicate_updated.pdf
+    正規方法 (EE5122): 2026-03-31_FM_06_exercise_sheet.pdf
+    正規方法 (EE5122): 2026-03-31_FM_06_CEGAR.pdf
+    專題演講二 (EEE7004): 114-2 專題演講出缺席.docx
+
+Checking announcements...
+
+Checking submissions...
+
+State saved to /Users/ydwu/.aide/instances/ntu.yiidtw/cogn
+[12:00:29] cron: cool-watch triggered
+[12:00:41] cron-result: cool-watch → ok (exit 0)
+[12:00:41] cron-stdout: cool-watch: Running COOL scan...
+Scan #34: 6 courses, 11 assignments, 118 files
+--- No changes since last scan ---
+
+Checking announcements...
+
+Checking submissions...
+
+State saved to /Users/ydwu/.aide/instances/ntu.yiidtw/cognition/cool-watch-state.json
+Registry: 4 subscribers loaded
+  EE5122 (cool_id=57171) → yiidtw/aide-ee5122-formal
+  EEE5023 (cool_id=61236) → yiidtw/aide-eee5023-socv
+  EEE5072 (cool_id=60106) → yiidtw/aide-ee5072-rl
+  EE5184 (cool_id=59878) → yiidtw/aide-ee5184-ml
+[16:00:26] cron: cool-watch triggered
+[16:00:40] cron-result: cool-watch → ok (exit 0)
+[16:00:40] cron-stdout: cool-watch: Running COOL scan...
+Scan #35: 6 courses, 11 assignments, 118 files
+--- No changes since last scan ---
+
+Checking announcements...
+
+Checking submissions...
+
+State saved to /Users/ydwu/.aide/instances/ntu.yiidtw/cognition/cool-watch-state.json
+Registry: 4 subscribers loaded
+  EE5122 (cool_id=57171) → yiidtw/aide-ee5122-formal
+  EEE5023 (cool_id=61236) → yiidtw/aide-eee5023-socv
+  EEE5072 (cool_id=60106) → yiidtw/aide-ee5072-rl
+  EE5184 (cool_id=59878) → yiidtw/aide-ee5184-ml

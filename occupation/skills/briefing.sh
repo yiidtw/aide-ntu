@@ -11,6 +11,8 @@ DATE=$(date '+%Y-%m-%d %A')
 echo "Generating daily briefing for ${TO}..."
 
 # ─── Gather raw data ───
+INST_DIR="${AIDE_INSTANCE_DIR:-$HOME/.aide/instances/ntu.yiidtw}"
+REGISTRY_FILE="$INST_DIR/cognition/registry.toml"
 COOL_ANNOUNCEMENTS=$(aide-skill cool announcements 2>&1) || COOL_ANNOUNCEMENTS=""
 COOL_ASSIGNMENTS=$(aide-skill cool assignments 2>&1) || COOL_ASSIGNMENTS=""
 COOL_SUBMISSIONS=$(aide-skill cool submissions 2>&1) || COOL_SUBMISSIONS=""
@@ -24,6 +26,7 @@ export RAW_SUBMISSIONS="$COOL_SUBMISSIONS"
 export RAW_SCAN="$COOL_SCAN"
 export RAW_MAIL="$MAIL_RAW"
 export BRIEFING_DATE="$DATE"
+export REGISTRY_FILE
 
 BODY=$(python3 << 'PYEOF'
 import os, re
@@ -39,12 +42,49 @@ submissions = os.environ.get("RAW_SUBMISSIONS", "")
 scan = os.environ.get("RAW_SCAN", "")
 mail = os.environ.get("RAW_MAIL", "")
 
+# ─── Load registry: course robots we're serving ───
+registry_file = os.environ.get("REGISTRY_FILE", "")
+course_robots = []  # [{instance, callback, course_code, cool_id}]
+if registry_file and os.path.exists(registry_file):
+    current = {}
+    with open(registry_file) as f:
+        for line in f:
+            line = line.strip()
+            if line == "[[subscribers]]":
+                if current.get("course_code"):
+                    course_robots.append(current)
+                current = {}
+            elif "=" in line and not line.startswith("#"):
+                key, val = line.split("=", 1)
+                key = key.strip()
+                val = val.strip().strip('"')
+                if key == "instance": current["instance"] = val
+                elif key == "callback": current["callback"] = val
+                elif key == "filter":
+                    m = re.search(r'cool_id\s*=\s*(\d+)', val)
+                    if m: current["cool_id"] = int(m.group(1))
+                    m = re.search(r'course_code\s*=\s*"(\w+)"', val)
+                    if m: current["course_code"] = m.group(1)
+        if current.get("course_code"):
+            course_robots.append(current)
+# Map course_code → robot info for later sections
+code_to_robot = {r["course_code"]: r for r in course_robots}
+
 out = []
 out.append(f"Daily Briefing — {date_str}")
 out.append("")
 
 # ══════════════════════════════════════════
-# 1. ACTION ITEMS
+# 0. REGISTERED COURSE ROBOTS
+# ══════════════════════════════════════════
+if course_robots:
+    out.append(f"🤖 COURSE ROBOTS ({len(course_robots)} registered):")
+    for r in course_robots:
+        out.append(f"  {r.get('course_code','?')} → {r.get('instance','?')} ({r.get('callback','?')})")
+    out.append("")
+
+# ══════════════════════════════════════════
+# 1. ACTION ITEMS (grouped by course robot)
 # ══════════════════════════════════════════
 out.append("⏰ ACTION ITEMS:")
 
@@ -274,7 +314,7 @@ out.append(f"  ({cool_count} COOL notification emails filtered)")
 out.append("")
 
 out.append("---")
-out.append("Sent by ntu-student agent via aide.sh")
+out.append(f"Sent by ntu.yiidtw via aide | {len(course_robots)} course robots registered")
 
 print("\n".join(out))
 PYEOF

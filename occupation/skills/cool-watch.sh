@@ -52,6 +52,19 @@ from datetime import datetime
 
 dry_run = "--dry-run" in sys.argv or os.environ.get("DRY_RUN") == "true"
 
+def open_issue(repo, title, body, label="cool-watch"):
+    """Open a GitHub issue, printing result or error."""
+    r = subprocess.run(
+        ["gh", "issue", "create", "--repo", repo, "--title", title, "--body", body, "--label", label],
+        capture_output=True, text=True
+    )
+    if r.returncode == 0:
+        print(f"  ✓ issue opened: {r.stdout.strip()}")
+        return True
+    else:
+        print(f"  ✗ gh issue create failed: {r.stderr.strip()}")
+        return False
+
 prev = json.loads(os.environ.get("PREV_STATE", "{}"))
 prev_ann_ids = set(prev.get("announcement_ids", []))
 prev_assign_ids = set(prev.get("assignment_ids", []))
@@ -173,10 +186,8 @@ if os.path.exists(scan_db):
                     body = f"COOL 出現新作業。\n\n- **名稱**: {name}\n- **截止日**: {due or 'TBD'}\n- **來源**: NTU COOL auto-detected by cool-watch"
                     print(f"NEW ASSIGNMENT: [{code}] {name}{due_str} → {repo}")
                     if not dry_run:
-                        subprocess.run(["gh", "issue", "create", "--repo", repo,
-                                        "--title", title, "--body", body,
-                                        "--label", "cool-watch"], capture_output=True)
-                        issues_created += 1
+                        if open_issue(repo, title, body):
+                            issues_created += 1
 
         # New files
         cur.execute("""
@@ -200,10 +211,8 @@ if os.path.exists(scan_db):
                     body = f"COOL 上傳新檔案。\n\n- **檔案**: {fname}\n- **大小**: {size_kb} KB\n- **類型**: {ctype or 'unknown'}\n- **來源**: NTU COOL auto-detected by cool-watch"
                     print(f"NEW FILE: [{code}] {fname} ({size_kb} KB) → {repo}")
                     if not dry_run:
-                        subprocess.run(["gh", "issue", "create", "--repo", repo,
-                                        "--title", title, "--body", body,
-                                        "--label", "cool-watch"], capture_output=True)
-                        issues_created += 1
+                        if open_issue(repo, title, body):
+                            issues_created += 1
 
         # Grade changes
         cur.execute("""

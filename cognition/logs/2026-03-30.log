@@ -89,3 +89,7 @@ State saved to /Users/ydwu/.aide/instances/ntu.yiidtw/cognition/cool-watch-state
 [21:28:46] exec-result: cool-watch --dry-run → ok (exit 0)
 [21:40:53] exec: cool-watch --dry-run
 [21:41:06] exec-result: cool-watch --dry-run → ok (exit 0)
+[23:00:22] cron: briefing triggered
+[23:00:40] cron-result: briefing → ok (exit 0)
+[23:00:40] cron-stdout: briefing: Generating daily briefing for yiidtw@gmail.com...
+Briefing sent to yiidtw@gmail.com from yiidtw.ntu@aide.sh
