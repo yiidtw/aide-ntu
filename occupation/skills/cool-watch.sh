@@ -52,18 +52,96 @@ from datetime import datetime
 
 dry_run = "--dry-run" in sys.argv or os.environ.get("DRY_RUN") == "true"
 
+OUTBOX_FILE = os.environ.get("INST_DIR", os.environ.get("AIDE_INSTANCE_DIR", "")) + "/cognition/outbox.json"
+
+def load_outbox():
+    if os.path.exists(OUTBOX_FILE):
+        with open(OUTBOX_FILE) as f:
+            return json.load(f)
+    return {"pending": []}
+
+def save_outbox(outbox):
+    os.makedirs(os.path.dirname(OUTBOX_FILE), exist_ok=True)
+    with open(OUTBOX_FILE, "w") as f:
+        json.dump(outbox, f, indent=2)
+
 def open_issue(repo, title, body, label="cool-watch"):
-    """Open a GitHub issue, printing result or error."""
+    """SYN: Open a GitHub issue and track in outbox for ack verification."""
     r = subprocess.run(
         ["gh", "issue", "create", "--repo", repo, "--title", title, "--body", body, "--label", label],
         capture_output=True, text=True
     )
     if r.returncode == 0:
-        print(f"  ✓ issue opened: {r.stdout.strip()}")
+        issue_url = r.stdout.strip()
+        print(f"  ✓ SYN: issue opened: {issue_url}")
+        # Extract issue number from URL: https://github.com/owner/repo/issues/N
+        issue_num = issue_url.rstrip("/").split("/")[-1] if "/" in issue_url else ""
+        # Save to outbox for ack tracking
+        outbox = load_outbox()
+        outbox["pending"].append({
+            "repo": repo,
+            "issue_number": issue_num,
+            "issue_url": issue_url,
+            "title": title,
+            "sent_at": datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
+            "status": "syn"
+        })
+        save_outbox(outbox)
         return True
     else:
-        print(f"  ✗ gh issue create failed: {r.stderr.strip()}")
+        print(f"  ✗ SYN failed: {r.stderr.strip()}")
         return False
+
+def check_acks():
+    """ACK-ACK: Check outbox for pending SYNs, verify receiver acked (👀 reaction or comment)."""
+    outbox = load_outbox()
+    if not outbox["pending"]:
+        return
+    print(f"\n── Handshake: checking {len(outbox['pending'])} pending acks ──")
+    still_pending = []
+    completed = []
+    for item in outbox["pending"]:
+        repo = item["repo"]
+        num = item.get("issue_number", "")
+        if not num:
+            still_pending.append(item)
+            continue
+        # Check for 👀 reaction
+        r = subprocess.run(
+            ["gh", "api", f"repos/{repo}/issues/{num}/reactions", "--jq", '.[].content'],
+            capture_output=True, text=True
+        )
+        reactions = r.stdout.strip().split("\n") if r.returncode == 0 and r.stdout.strip() else []
+        # Check for any comment (receiver ack)
+        c = subprocess.run(
+            ["gh", "api", f"repos/{repo}/issues/{num}/comments", "--jq", 'length'],
+            capture_output=True, text=True
+        )
+        comment_count = int(c.stdout.strip()) if c.returncode == 0 and c.stdout.strip().isdigit() else 0
+        has_eyes = "eyes" in reactions
+        has_comment = comment_count > 0
+        if has_eyes or has_comment:
+            item["status"] = "acked"
+            item["acked_at"] = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
+            print(f"  ✓ ACK-ACK: {repo}#{num} — {'👀' if has_eyes else ''} {'💬' if has_comment else ''}")
+            completed.append(item)
+        else:
+            sent = datetime.strptime(item["sent_at"], "%Y-%m-%dT%H:%M:%SZ")
+            age_h = (datetime.utcnow() - sent).total_seconds() / 3600
+            if age_h > 24:
+                item["status"] = "timeout"
+                print(f"  ✗ TIMEOUT: {repo}#{num} — no ack after {age_h:.0f}h")
+                completed.append(item)
+            else:
+                print(f"  ⏳ PENDING: {repo}#{num} — waiting ({age_h:.1f}h)")
+                still_pending.append(item)
+    # Update outbox
+    outbox["pending"] = still_pending
+    history = outbox.get("history", [])
+    history.extend(completed)
+    outbox["history"] = history[-50:]  # keep last 50
+    save_outbox(outbox)
+    print(f"  ── pending={len(still_pending)} resolved={len(completed)}")
 
 prev = json.loads(os.environ.get("PREV_STATE", "{}"))
 prev_ann_ids = set(prev.get("announcement_ids", []))
@@ -251,10 +329,11 @@ for ann in ann_blocks:
         body = f"COOL 公告 ({ann['date']})。\n\n- **課程**: {ann['course']}\n- **標題**: {ann['title']}\n- **日期**: {ann['date']}\n- **來源**: NTU COOL auto-detected by cool-watch"
         print(f"NEW ANNOUNCEMENT: [{code}] {ann['title']} ({ann['date']}) → {repo}")
         if not dry_run:
-            subprocess.run(["gh", "issue", "create", "--repo", repo,
-                            "--title", title, "--body", body,
-                            "--label", "cool-watch"], capture_output=True)
-            issues_created += 1
+            if open_issue(repo, title, body):
+                issues_created += 1
+
+# ─── 4. Check acks on previously sent issues ───
+check_acks()
 
 # ─── Save state ───
 import json as j

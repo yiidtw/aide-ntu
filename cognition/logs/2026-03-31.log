@@ -79,3 +79,5 @@ Registry: 4 subscribers loaded
   EEE5023 (cool_id=61236) → yiidtw/aide-eee5023-socv
   EEE5072 (cool_id=60106) → yiidtw/aide-ee5072-rl
   EE5184 (cool_id=59878) → yiidtw/aide-ee5184-ml
+[16:46:40] exec: cool-watch --dry-run
+[16:46:50] exec-result: cool-watch --dry-run → ok (exit 0)
