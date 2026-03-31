@@ -83,3 +83,5 @@ Registry: 4 subscribers loaded
 [16:46:50] exec-result: cool-watch --dry-run → ok (exit 0)
 [16:47:28] exec: cool-watch --dry-run
 [16:47:40] exec-result: cool-watch --dry-run → ok (exit 0)
+[16:48:20] exec: cool-watch --dry-run
+[16:48:33] exec-result: cool-watch --dry-run → ok (exit 0)

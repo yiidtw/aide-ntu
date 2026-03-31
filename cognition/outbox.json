@@ -1,12 +1,14 @@
 {
-  "pending": [
+  "pending": [],
+  "history": [
     {
       "repo": "yiidtw/aide-ee5122-formal",
       "issue_number": "1",
       "issue_url": "https://github.com/yiidtw/aide-ee5122-formal/issues/1",
       "title": "[handshake-test] 3-way handshake protocol test",
       "sent_at": "2026-03-31T16:47:11Z",
-      "status": "syn"
+      "status": "acked",
+      "acked_at": "2026-03-31T16:48:33Z"
     }
   ]
 }

@@ -8,7 +8,7 @@ set -euo pipefail
 DRY_RUN=false
 [[ "${1:-}" == "--dry-run" ]] && DRY_RUN=true
 
-INST_DIR="${AIDE_INSTANCE_DIR:-$HOME/.aide/instances/ntu.yiidtw}"
+export INST_DIR="${AIDE_INSTANCE_DIR:-$HOME/.aide/instances/ntu.yiidtw}"
 SCAN_DB="$HOME/claude_projects/NTUGIEE/2026Spring/cool_scan.db"
 STATE_FILE="$INST_DIR/cognition/cool-watch-state.json"
 REGISTRY_FILE="$INST_DIR/cognition/registry.toml"
