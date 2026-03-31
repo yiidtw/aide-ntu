@@ -112,3 +112,6 @@ Format c...
 
 understood — this looks like a smoke test validating the occupation/cognition pipeline. No NTU ski...
 [19:36:12] github-comment-result: #3/4100707906 → ok
+[19:36:18] github-comment: #3 by yiidtw — Correct — no skill matched, no `EXEC:` issued. Routing logic confirmed working on the no-op path.
+
+[19:46:44] github-comment-result: #3/4100728775 → ok
