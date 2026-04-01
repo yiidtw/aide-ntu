@@ -107,3 +107,85 @@ Registry: 4 subscribers loaded
 [09:42:41] exec-result: cool-watch --dry-run → ok (exit 0)
 [09:42:52] exec: cool-watch --dry-run
 [09:43:02] exec-result: cool-watch --dry-run → ok (exit 0)
+[12:00:29] cron: cool-watch triggered
+[12:00:33] cron: cool-watch triggered
+[12:00:41] cron-result: cool-watch → ok (exit 0)
+[12:00:41] cron-stdout: cool-watch: Running COOL scan...
+Scan #49: 6 courses, 11 assignments, 118 files
+--- No changes since last scan ---
+
+Checking announcements...
+
+Checking submissions...
+
+State saved to /Users/ydwu/.aide/instances/ntu.yiidtw/cognition/cool-watch-state.json
+Org 'ntu': 4 members discovered
+  EEE5023 (cool_id=61236) → yiidtw/aide-eee5023-socv
+  EE5122 (cool_id=57171) → yiidtw/aide-ee5122-formal
+  EE5184 (cool_id=59878) → yiidtw/aide-ee5184-ml
+  EEE5072 (cool_id=60106) → yiidtw/aide-ee5072-rl
+[12:00:43] cron-result: cool-watch → ok (exit 0)
+[12:00:43] cron-stdout: cool-watch: Running COOL scan...
+Scan #50: 6 courses, 11 assignments, 118 files
+--- No changes since last scan ---
+
+Checking announcements...
+
+Checking submissions...
+
+State saved to /Users/ydwu/.aide/instances/ntu.yiidtw/cognition/cool-watch-state.json
+Registry fallback: 4 subscribers loaded
+[13:39:20] prompt: 檢查今天有沒有新作業，有的話幫我開始寫
+[13:39:49] prompt: 檢查今天有沒有新作業，有的話幫我開始寫
+[13:40:56] prompt: 檢查今天有沒有新作業，有的話幫我開始寫
+[13:40:59] prompt-exec: cool assignments → ok (exit 0)
+[13:41:47] prompt: 檢查今天有沒有新作業，有的話幫我開始寫
+[13:41:50] prompt-exec: cool assignments → ok (exit 0)
+[13:43:30] prompt: 檢查今天有沒有新作業，有的話幫我開始寫
+[13:43:32] prompt-exec: cool assignments → ok (exit 0)
+[13:43:33] prompt-exec: cool todos → ok (exit 0)
+[13:43:47] dispatch: ee5184-ml.ydwu → HW2 明天到期，請先到 Cool 上查看題目內容，然後開始寫。 (https://github.com/yiidtw/aide-ee5184-ml/issues/1)
+[13:43:48] dispatch: ee5122-formal.ydwu → Programming Assignment 1 下週一到期，請先到 Cool 上查看題目內容，然後開始寫。 (https://github.com/yiidtw/aide-ee5122-formal/issues/2)
+[13:52:06] prompt: 幫我看一下四門課的最新狀況，有什麼新公告、新作業、成績更新嗎
+[13:52:21] prompt: 掃描 COOL，看看四門課有什麼新的
+[13:52:21] prompt-plan: EXEC: cool scan
+[13:52:27] prompt-exec: cool scan → ok (exit 0)
+[13:52:27] prompt-step2: analyzing 1 exec results for dispatch
+[13:52:50] prompt: 列出所有未繳作業和最近公告，然後通知對應的修課機器人
+[13:52:50] prompt-plan: EXEC: cool todos | EXEC: cool announcements
+[13:52:52] prompt-exec: cool todos → ok (exit 0)
+[13:52:54] prompt-exec: cool announcements → ok (exit 0)
+[13:52:54] prompt-step2: analyzing 2 exec results for dispatch
+[13:53:05] dispatch: ee5184-ml.ydwu → — 有 5 則近期公告：(1) ML HW1 成績公布 (3/30) (2) Week 5公告 (3/30) (3) 上課影片已經上傳 (3/30) (4) 本週課程異動 (3/27) (5) Week 4 公告 (3/25)。請檢查是否有未繳作業或需要處理的事項。 (https://github.com/yiidtw/aide-ee5184-ml/issues/2)
+[13:53:07] dispatch: eee5023-socv.ydwu → — 有 1 則近期公告：Week #3 LN Grading (3/18)。請檢查是否有未繳作業或需要處理的事項。 (https://github.com/yiidtw/aide-eee5023-socv/issues/2)
+[15:19:30] prompt: 跟四門課的機器人說一下現在可以用的 skill 和還缺的，讓他們用已有的 skill 先把能做的事做了。具體來說：
+1. 每個機器人用 cool assignments 和 cool submissions 檢查自己的作業狀態
+2. 如果有未交的作業，開始準備
+3. 回報哪些 skill 還缺
+[15:19:30] prompt-plan: DISPATCH: ee5072-rl.ydwu 盤點你目前可用的 skill，然後：1) 執行 `aide exec -p ntu.yiidtw "cool assignments"` 和 `aide exec -p ntu.yiidtw "cool submissions"` 檢查 EE5072 RL 的作業與繳交狀態；2) 如果有未繳交的作業，用你現有的 skill 開始準備（寫code、跑實驗等）；3) 回報你目前缺哪些 skill（例如自動繳交、測試、特定演算法模板等），開 issue 列出需求。 | DISPATCH: ee5122-formal.ydwu 盤點你目前可用的 skill，然後：1) 執行 `aide exec -p ntu.yiidtw "cool assignments"` 和 `aide exec -p ntu.yiidtw "cool submissions"` 檢查 EE5122 Formal 的作業與繳交狀態；2) 如果有未繳交的作業，用你現有的 skill 開始準備（寫證明、跑 model checking 等）；3) 回報你目前缺哪些 skill（例如自動繳交、NuSMV/TLA+ 模板、proof assistant 等），開 issue 列出需求。 | DISPATCH: ee5184-ml.ydwu 盤點你目前可用的 skill，然後：1) 執行 `aide exec -p ntu.yiidtw "cool assignments"` 和 `aide exec -p ntu.yiidtw "cool submissions"` 檢查 EE5184 ML 的作業與繳交狀態；2) 如果有未繳交的作業，用你現有的 skill 開始準備（寫模型、跑訓練等）；3) 回報你目前缺哪些 skill（例如自動繳交、dataset loader、training pipeline 等），開 issue 列出需求。 | DISPATCH: eee5023-socv.ydwu 盤點你目前可用的 skill，然後：1) 執行 `aide exec -p ntu.yiidtw "cool assignments"` 和 `aide exec -p ntu.yiidtw "cool submissions"` 檢查 EEE5023 SoCV 的作業與繳交狀態；2) 如果有未繳交的作業，用你現有的 skill 開始準備（寫 SystemVerilog、跑 formal verification 等）；3) 回報你目前缺哪些 skill（例如自動繳交、SVA 模板、solver integration 等），開 issue 列出需求。
+[15:19:32] dispatch: ee5072-rl.ydwu → 盤點你目前可用的 skill，然後：1) 執行 `aide exec -p ntu.yiidtw "cool assignments"` 和 `aide exec -p ntu.yiidtw "cool submissions"` 檢查 EE5072 RL 的作業與繳交狀態；2) 如果有未繳交的作業，用你現有的 skill 開始準備（寫code、跑實驗等）；3) 回報你目前缺哪些 skill（例如自動繳交、測試、特定演算法模板等），開 issue 列出需求。 (https://github.com/yiidtw/aide-ee5072-rl/issues/1)
+[15:19:34] dispatch: ee5122-formal.ydwu → 盤點你目前可用的 skill，然後：1) 執行 `aide exec -p ntu.yiidtw "cool assignments"` 和 `aide exec -p ntu.yiidtw "cool submissions"` 檢查 EE5122 Formal 的作業與繳交狀態；2) 如果有未繳交的作業，用你現有的 skill 開始準備（寫證明、跑 model checking 等）；3) 回報你目前缺哪些 skill（例如自動繳交、NuSMV/TLA+ 模板、proof assistant 等），開 issue 列出需求。 (https://github.com/yiidtw/aide-ee5122-formal/issues/3)
+[15:19:36] dispatch: ee5184-ml.ydwu → 盤點你目前可用的 skill，然後：1) 執行 `aide exec -p ntu.yiidtw "cool assignments"` 和 `aide exec -p ntu.yiidtw "cool submissions"` 檢查 EE5184 ML 的作業與繳交狀態；2) 如果有未繳交的作業，用你現有的 skill 開始準備（寫模型、跑訓練等）；3) 回報你目前缺哪些 skill（例如自動繳交、dataset loader、training pipeline 等），開 issue 列出需求。 (https://github.com/yiidtw/aide-ee5184-ml/issues/3)
+[15:19:38] dispatch: eee5023-socv.ydwu → 盤點你目前可用的 skill，然後：1) 執行 `aide exec -p ntu.yiidtw "cool assignments"` 和 `aide exec -p ntu.yiidtw "cool submissions"` 檢查 EEE5023 SoCV 的作業與繳交狀態；2) 如果有未繳交的作業，用你現有的 skill 開始準備（寫 SystemVerilog、跑 formal verification 等）；3) 回報你目前缺哪些 skill（例如自動繳交、SVA 模板、solver integration 等），開 issue 列出需求。 (https://github.com/yiidtw/aide-eee5023-socv/issues/3)
+[15:36:33] prompt: 先用 cool submissions 查所有課程的繳交狀態，再用 cool assignments 查截止日期，最後彙整成一份報告：每門課的作業狀態（已交/未交/已批/分數），哪些緊急，哪些還沒開始。不要 dispatch，我要你自己整理。
+[15:38:49] prompt: 用 cool submissions 和 cool assignments 查所有課的作業繳交狀態和截止日，彙整成報告。不要 dispatch。
+[15:38:49] prompt-plan: EXEC: cool assignments | EXEC: cool submissions
+[15:38:52] prompt-exec: cool assignments → ok (exit 0)
+[15:38:55] prompt-exec: cool submissions → ok (exit 0)
+[15:38:55] prompt-step2: analyzing 2 exec results for dispatch
+[16:00:29] cron: cool-watch triggered
+[16:00:44] cron-result: cool-watch → ok (exit 0)
+[16:00:44] cron-stdout: cool-watch: Running COOL scan...
+Scan #53: 6 courses, 11 assignments, 118 files
+--- No changes since last scan ---
+
+Checking announcements...
+
+Checking submissions...
+
+State saved to /Users/ydwu/.aide/instances/ntu.yiidtw/cognition/cool-watch-state.json
+Org 'ntu': 4 members discovered
+  EEE5023 (cool_id=61236) → yiidtw/aide-eee5023-socv
+  EE5122 (cool_id=57171) → yiidtw/aide-ee5122-formal
+  EE5184 (cool_id=59878) → yiidtw/aide-ee5184-ml
+  EEE5072 (cool_id=60106) → yiidtw/aide-ee5072-rl
