@@ -9,6 +9,15 @@
       "sent_at": "2026-03-31T16:47:11Z",
       "status": "acked",
       "acked_at": "2026-03-31T16:48:33Z"
+    },
+    {
+      "repo": "yiidtw/aide-eee5023-socv",
+      "issue_number": "1",
+      "issue_url": "https://github.com/yiidtw/aide-eee5023-socv/issues/1",
+      "title": "[COOL] \u65b0\u6a94\u6848: SoCV 114-2 Student Scores.pdf",
+      "sent_at": "2026-04-01T04:00:15Z",
+      "status": "acked",
+      "acked_at": "2026-04-01T08:00:43Z"
     }
   ]
 }

@@ -66,7 +66,16 @@ def save_outbox(outbox):
         json.dump(outbox, f, indent=2)
 
 def open_issue(repo, title, body, label="cool-watch"):
-    """SYN: Open a GitHub issue and track in outbox for ack verification."""
+    """SYN: Open a GitHub issue and track in outbox for ack verification.
+    Deduplicates by checking if an open issue with the same title already exists."""
+    # Dedup: check if issue with same title already exists
+    dup_check = subprocess.run(
+        ["gh", "issue", "list", "--repo", repo, "--search", title, "--state", "open", "--json", "title", "--jq", "length"],
+        capture_output=True, text=True
+    )
+    if dup_check.returncode == 0 and dup_check.stdout.strip().isdigit() and int(dup_check.stdout.strip()) > 0:
+        print(f"  ⚠ DEDUP: issue already exists on {repo}: {title}")
+        return False
     r = subprocess.run(
         ["gh", "issue", "create", "--repo", repo, "--title", title, "--body", body, "--label", label],
         capture_output=True, text=True
@@ -152,50 +161,90 @@ announcements = os.environ.get("ANNOUNCEMENTS", "")
 submissions = os.environ.get("SUBMISSIONS", "")
 scan_db = os.environ.get("SCAN_DB", "")
 
-# ─── Read registry.toml → build course_repo and course_cool_id dynamically ───
-registry_file = os.environ.get("REGISTRY_FILE", "")
+# ─── Org-native discovery: scan instances where org matches ours ───
+import glob as _glob
+
+inst_base = os.path.expanduser("~/.aide/instances")
+my_org = None
+inst_dir = os.environ.get("INST_DIR", os.environ.get("AIDE_INSTANCE_DIR", ""))
+
+# Read our own org
+if inst_dir:
+    my_toml = os.path.join(inst_dir, "cognition/instance.toml")
+    if os.path.exists(my_toml):
+        for line in open(my_toml):
+            m = _re.match(r'^org\s*=\s*"(.+)"', line.strip())
+            if m:
+                my_org = m.group(1)
+                break
+
 course_repo = {}     # course_code → callback GitHub repo
 course_cool_id = {}  # course_code → COOL course ID
 
-if registry_file and os.path.exists(registry_file):
-    # Minimal TOML parser for [[subscribers]] with filter.cool_id and filter.course_code
-    current = {}
-    with open(registry_file) as f:
-        for line in f:
+if my_org:
+    # Scan all instances in the same org
+    for itoml in _glob.glob(os.path.join(inst_base, "*/cognition/instance.toml")):
+        idir = os.path.dirname(os.path.dirname(itoml))
+        iname = os.path.basename(idir)
+        # Read instance.toml for org + github_repo
+        i_org = None
+        i_repo = None
+        for line in open(itoml):
             line = line.strip()
-            if line == "[[subscribers]]":
-                if current.get("course_code") and current.get("callback"):
-                    course_repo[current["course_code"]] = current["callback"]
-                    if current.get("cool_id"):
-                        course_cool_id[current["course_code"]] = current["cool_id"]
-                current = {}
-            elif "=" in line and not line.startswith("#"):
-                key, val = line.split("=", 1)
-                key = key.strip()
-                val = val.strip().strip('"')
-                if key == "callback":
-                    current["callback"] = val
-                elif key == "instance":
-                    current["instance"] = val
-                # Parse filter inline table: { cool_id = 57171, course_code = "EE5122" }
-                elif key == "filter":
-                    m = _re.search(r'cool_id\s*=\s*(\d+)', val)
-                    if m:
-                        current["cool_id"] = int(m.group(1))
-                    m = _re.search(r'course_code\s*=\s*"(\w+)"', val)
-                    if m:
-                        current["course_code"] = m.group(1)
-        # Last entry
-        if current.get("course_code") and current.get("callback"):
-            course_repo[current["course_code"]] = current["callback"]
-            if current.get("cool_id"):
-                course_cool_id[current["course_code"]] = current["cool_id"]
-
-    print(f"Registry: {len(course_repo)} subscribers loaded")
+            m = _re.match(r'^org\s*=\s*"(.+)"', line)
+            if m: i_org = m.group(1)
+            m = _re.match(r'^github_repo\s*=\s*"(.+)"', line)
+            if m: i_repo = m.group(1)
+        if i_org != my_org or iname == os.path.basename(inst_dir):
+            continue  # different org or self
+        if not i_repo:
+            continue
+        # Read subscriptions.toml for cool_id + course_code
+        sub_toml = os.path.join(idir, "cognition/subscriptions.toml")
+        if os.path.exists(sub_toml):
+            for line in open(sub_toml):
+                line = line.strip()
+                if "cool_id" in line and "course_code" in line:
+                    m_id = _re.search(r'cool_id\s*=\s*(\d+)', line)
+                    m_code = _re.search(r'course_code\s*=\s*"(\w+)"', line)
+                    if m_id and m_code:
+                        code = m_code.group(1)
+                        course_repo[code] = i_repo
+                        course_cool_id[code] = int(m_id.group(1))
+    print(f"Org '{my_org}': {len(course_repo)} members discovered")
     for code, repo in course_repo.items():
         print(f"  {code} (cool_id={course_cool_id.get(code, '?')}) → {repo}")
 else:
-    print("WARNING: no registry.toml found, no subscribers")
+    # Fallback: try registry.toml
+    registry_file = os.environ.get("REGISTRY_FILE", "")
+    if registry_file and os.path.exists(registry_file):
+        current = {}
+        with open(registry_file) as f:
+            for line in f:
+                line = line.strip()
+                if line == "[[subscribers]]":
+                    if current.get("course_code") and current.get("callback"):
+                        course_repo[current["course_code"]] = current["callback"]
+                        if current.get("cool_id"):
+                            course_cool_id[current["course_code"]] = current["cool_id"]
+                    current = {}
+                elif "=" in line and not line.startswith("#"):
+                    key, val = line.split("=", 1)
+                    key = key.strip()
+                    val = val.strip().strip('"')
+                    if key == "callback": current["callback"] = val
+                    elif key == "filter":
+                        m = _re.search(r'cool_id\s*=\s*(\d+)', val)
+                        if m: current["cool_id"] = int(m.group(1))
+                        m = _re.search(r'course_code\s*=\s*"(\w+)"', val)
+                        if m: current["course_code"] = m.group(1)
+            if current.get("course_code") and current.get("callback"):
+                course_repo[current["course_code"]] = current["callback"]
+                if current.get("cool_id"):
+                    course_cool_id[current["course_code"]] = current["cool_id"]
+        print(f"Registry fallback: {len(course_repo)} subscribers loaded")
+    else:
+        print("WARNING: no org set and no registry.toml found")
 
 # Reverse: cool_id → course_code
 id_to_code = {v: k for k, v in course_cool_id.items()}

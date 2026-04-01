@@ -7,6 +7,8 @@ domains = []
 github_repo = "yiidtw/aide-ntu"
 uuid = "52c9b351-7984-4058-8ef8-1b96bca10358"
 machine_id = "Mac.hitronhub.home"
+org = "ntu"
+org_router = "ntu.yiidtw"
 
 [[cron]]
 schedule = "0 7 * * *"
@@ -16,4 +18,4 @@ last_run = "2026-03-31T23:00:58.336238Z"
 [[cron]]
 schedule = "0 */4 * * *"
 skill = "cool-watch"
-last_run = "2026-04-01T00:00:40.410823Z"
+last_run = "2026-04-01T08:00:53.917719Z"

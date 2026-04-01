@@ -35,8 +35,9 @@ usage = "cool-watch [--dry-run]"
 schedule = "0 */4 * * *"
 env = ["EMAIL_USER", "EMAIL_PASS", "COOL_BASE_URL", "ADFS_BASE_URL"]
 
-[expose]
-telegram = { token_env = "TELEGRAM_BOT_TOKEN" }
+# [expose]
+# telegram disabled — conflicts with formace-00 daemon
+# telegram = { token_env = "TELEGRAM_BOT_TOKEN" }
 
 [seed]
 dir = "seed/"
