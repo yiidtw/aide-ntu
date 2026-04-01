@@ -24,3 +24,6 @@ Registry: 4 subscribers loaded
 
 understood — this looks like a smoke test validating the occupation/cognition pipeline. No NTU ski...
 [03:06:37] github-comment-result: #3/4100707906 → ok
+[03:06:43] github-comment: #3 by yiidtw — Correct — no skill matched, no `EXEC:` issued. Routing logic confirmed working on the no-op path.
+
+[03:06:52] github-comment-result: #3/4100728775 → ok
