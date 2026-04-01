@@ -27,3 +27,9 @@ understood — this looks like a smoke test validating the occupation/cognition 
 [03:06:43] github-comment: #3 by yiidtw — Correct — no skill matched, no `EXEC:` issued. Routing logic confirmed working on the no-op path.
 
 [03:06:52] github-comment-result: #3/4100728775 → ok
+[03:06:59] github-comment: #4 by yiidtw — Based on the code and hostname, here's the ack:
+
+🤖 **ntu.yiidtw(Mac.hitronhub.home:52c9)**
+
+Format c...
+[03:07:09] github-comment-result: #4/4100882630 → ok
