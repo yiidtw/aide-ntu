@@ -11,9 +11,9 @@ machine_id = "Mac.hitronhub.home"
 [[cron]]
 schedule = "0 7 * * *"
 skill = "briefing"
-last_run = "2026-03-30T23:00:40.616930Z"
+last_run = "2026-03-31T23:00:58.336238Z"
 
 [[cron]]
 schedule = "0 */4 * * *"
 skill = "cool-watch"
-last_run = "2026-03-31T16:00:40.049639Z"
+last_run = "2026-04-01T00:00:40.410823Z"

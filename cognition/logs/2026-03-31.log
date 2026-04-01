@@ -115,3 +115,43 @@ understood — this looks like a smoke test validating the occupation/cognition 
 [19:36:18] github-comment: #3 by yiidtw — Correct — no skill matched, no `EXEC:` issued. Routing logic confirmed working on the no-op path.
 
 [19:46:44] github-comment-result: #3/4100728775 → ok
+[20:00:29] cron: cool-watch triggered
+[20:00:41] cron: cool-watch triggered
+[20:00:47] cron-result: cool-watch → ok (exit 0)
+[20:00:47] cron-stdout: cool-watch: Running COOL scan...
+Scan #39: 6 courses, 11 assignments, 118 files
+--- No changes since last scan ---
+
+Checking announcements...
+
+Checking submissions...
+
+State saved to /Users/ydwu/.aide/instances/ntu.yiidtw/cognition/cool-watch-state.json
+Registry: 4 subscribers loaded
+  EE5122 (cool_id=57171) → yiidtw/aide-ee5122-formal
+  EEE5023 (cool_id=61236) → yiidtw/aide-eee5023-socv
+  EEE5072 (cool_id=60106) → yiidtw/aide-ee5072-rl
+  EE5184 (cool_id=59878) → yiidtw/aide-ee5184-ml
+[20:01:04] cron-result: cool-watch → ok (exit 0)
+[20:01:04] cron-stdout: cool-watch: Running COOL scan...
+Scan #40: 6 courses, 11 assignments, 118 files
+--- No changes since last scan ---
+
+Checking announcements...
+
+Checking submissions...
+
+State saved to /Users/ydwu/.aide/instances/ntu.yiidtw/cognition/cool-watch-state.json
+Registry: 4 subscribers loaded
+  EE5122 (cool_id=57171) → yiidtw/aide-ee5122-formal
+  EEE5023 (cool_id=61236) → yiidtw/aide-eee5023-socv
+  EEE5072 (cool_id=60106) → yiidtw/aide-ee5072-rl
+  EE5184 (cool_id=59878) → yiidtw/aide-ee5184-ml
+[23:00:29] cron: briefing triggered
+[23:00:41] cron: briefing triggered
+[23:00:48] cron-result: briefing → ok (exit 0)
+[23:00:48] cron-stdout: briefing: Generating daily briefing for yiidtw@gmail.com...
+Briefing sent to yiidtw@gmail.com from yiidtw.ntu@aide.sh
+[23:00:58] cron-result: briefing → ok (exit 0)
+[23:00:58] cron-stdout: briefing: Generating daily briefing for yiidtw@gmail.com...
+Briefing sent to yiidtw@gmail.com from yiidtw.ntu@aide.sh
