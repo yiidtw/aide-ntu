@@ -189,3 +189,35 @@ Org 'ntu': 4 members discovered
   EE5122 (cool_id=57171) → yiidtw/aide-ee5122-formal
   EE5184 (cool_id=59878) → yiidtw/aide-ee5184-ml
   EEE5072 (cool_id=60106) → yiidtw/aide-ee5072-rl
+[19:01:13] daily: cognition sync committed
+[19:45:49] prompt: 用 cool assignments 和 cool submissions 查所有課的作業和繳交狀態，彙整成表格，不要 dispatch
+[19:45:49] prompt-plan: EXEC: cool assignments | EXEC: cool submissions
+[19:45:54] prompt-exec: cool assignments → ok (exit 0)
+[19:45:57] prompt-exec: cool submissions → ok (exit 0)
+[19:49:18] prompt: 所有課程的作業狀態：已交、已評分、未交、不在 COOL 的都列出來
+[19:49:18] prompt-plan: EXEC: cool assignments | EXEC: cool todos
+[19:49:22] prompt-exec: cool assignments → ok (exit 0)
+[19:49:24] prompt-exec: cool todos → ok (exit 0)
+[19:49:38] prompt: 所有課程的作業狀態：已交、已評分、未交、不在 COOL 的都列出來
+[19:49:38] prompt-plan: EXEC: cool assignments | EXEC: cool todos
+[19:49:42] prompt-exec: cool assignments → ok (exit 0)
+[19:49:43] prompt-exec: cool todos → ok (exit 0)
+[19:51:38] prompt: 所有課程的作業狀態
+[19:51:38] prompt-plan: EXEC: cool assignments
+[19:51:42] prompt-exec: cool assignments → ok (exit 0)
+[20:00:02] cron: cool-watch triggered
+[20:00:15] cron-result: cool-watch → ok (exit 0)
+[20:00:15] cron-stdout: cool-watch: Running COOL scan...
+Scan #54: 6 courses, 11 assignments, 118 files
+--- No changes since last scan ---
+
+Checking announcements...
+
+Checking submissions...
+
+State saved to /Users/ydwu/.aide/instances/ntu.yiidtw/cognition/cool-watch-state.json
+Registry fallback: 4 subscribers loaded
+[23:00:02] cron: briefing triggered
+[23:00:21] cron-result: briefing → ok (exit 0)
+[23:00:21] cron-stdout: briefing: Generating daily briefing for yiidtw@gmail.com...
+Briefing sent to yiidtw@gmail.com from yiidtw.ntu@aide.sh

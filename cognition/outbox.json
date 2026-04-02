@@ -1,5 +1,38 @@
 {
-  "pending": [],
+  "pending": [
+    {
+      "repo": "yiidtw/aide-ee5072-rl",
+      "issue_number": "3",
+      "issue_url": "https://github.com/yiidtw/aide-ee5072-rl/issues/3",
+      "title": "[COOL] \u65b0\u6a94\u6848: Design Automation for Wire-bonding Package Substrate Design.pdf",
+      "sent_at": "2026-04-02T08:00:51Z",
+      "status": "syn"
+    },
+    {
+      "repo": "yiidtw/aide-ee5072-rl",
+      "issue_number": "4",
+      "issue_url": "https://github.com/yiidtw/aide-ee5072-rl/issues/4",
+      "title": "[COOL] \u65b0\u6a94\u6848: Logic_Locking_and_Machine_Learning-Based_Attacks_on_Locked_Desig ns.pdf",
+      "sent_at": "2026-04-02T08:00:53Z",
+      "status": "syn"
+    },
+    {
+      "repo": "yiidtw/aide-ee5072-rl",
+      "issue_number": "5",
+      "issue_url": "https://github.com/yiidtw/aide-ee5072-rl/issues/5",
+      "title": "[COOL] \u65b0\u6a94\u6848: MIA_Cmplt_Shao_Yun_Fang.pdf",
+      "sent_at": "2026-04-02T08:00:56Z",
+      "status": "syn"
+    },
+    {
+      "repo": "yiidtw/aide-ee5072-rl",
+      "issue_number": "6",
+      "issue_url": "https://github.com/yiidtw/aide-ee5072-rl/issues/6",
+      "title": "[COOL] \u65b0\u6a94\u6848: GateSizing_IrisHuiRuJiang.pdf",
+      "sent_at": "2026-04-02T08:00:58Z",
+      "status": "syn"
+    }
+  ],
   "history": [
     {
       "repo": "yiidtw/aide-ee5122-formal",
@@ -18,6 +51,15 @@
       "sent_at": "2026-04-01T04:00:15Z",
       "status": "acked",
       "acked_at": "2026-04-01T08:00:43Z"
+    },
+    {
+      "repo": "yiidtw/aide-ee5072-rl",
+      "issue_number": "7",
+      "issue_url": "https://github.com/yiidtw/aide-ee5072-rl/issues/7",
+      "title": "[COOL] \u65b0\u6a94\u6848: week3_invited_intro.pdf",
+      "sent_at": "2026-04-02T08:01:01Z",
+      "status": "acked",
+      "acked_at": "2026-04-02T12:01:13Z"
     }
   ]
 }
