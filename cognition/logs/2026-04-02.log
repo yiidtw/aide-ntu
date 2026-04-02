@@ -102,3 +102,9 @@ Registry fallback: 4 subscribers loaded
 [22:53:50] mcp-exec-result: cool → FAILED (exit 2)
 [22:53:57] mcp-exec: cool assignments
 [22:53:57] mcp-exec-result: cool → FAILED (exit 2)
+[23:00:17] cron: briefing triggered
+[23:00:37] cron-result: briefing → ok (exit 0)
+[23:00:37] cron-stdout: briefing: Generating daily briefing for yiidtw@gmail.com...
+Briefing sent to yiidtw@gmail.com from yiidtw.ntu@aide.sh
+[23:10:51] mcp-exec: cool announcements ee5072
+[23:10:51] mcp-exec-result: cool → FAILED (exit 2)
