@@ -108,3 +108,5 @@ Registry fallback: 4 subscribers loaded
 Briefing sent to yiidtw@gmail.com from yiidtw.ntu@aide.sh
 [23:10:51] mcp-exec: cool announcements ee5072
 [23:10:51] mcp-exec-result: cool → FAILED (exit 2)
+[23:11:00] mcp-exec: cool announcements
+[23:11:00] mcp-exec-result: cool → FAILED (exit 2)
