@@ -97,3 +97,6 @@ Registry fallback: 4 subscribers loaded
   ⏳ PENDING: yiidtw/aide-ee5072-rl#5 — waiting (8.0h)
   ⏳ PENDING: yiidtw/aide-ee5072-rl#6 — waiting (8.0h)
   ── pending=4 resolved=0
+[19:00:58] daily: cognition sync committed
+[22:53:50] mcp-exec: cool assignments EE5122
+[22:53:50] mcp-exec-result: cool → FAILED (exit 2)
