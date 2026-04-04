@@ -55,3 +55,28 @@ Registry fallback: 4 subscribers loaded
   ✗ TIMEOUT: yiidtw/aide-ee5072-rl#5 — no ack after 24h
   ✗ TIMEOUT: yiidtw/aide-ee5072-rl#6 — no ack after 24h
   ── pending=0 resolved=4
+[19:00:28] daily: cognition sync committed
+[20:00:20] cron: cool-watch triggered
+[20:00:51] cron-result: cool-watch → ok (exit 0)
+[20:00:51] cron-stdout: cool-watch: Running COOL scan...
+Scan #69: 6 courses, 11 assignments, 123 files
+--- No changes since last scan ---
+
+Checking announcements...
+
+Checking submissions...
+
+State saved to /Users/ydwu/.aide/instances/ntu.yiidtw/cognition/cool-watch-state.json
+Registry fallback: 4 subscribers loaded
+NEW ANNOUNCEMENT: [EEE5072] Final Project team member registration (2026-04-03) → yiidtw/aide-ee5072-rl
+  ✓ SYN: issue opened: https://github.com/yiidtw/aide-ee5072-rl/issues/11
+NEW ANNOUNCEMENT: [EE5184] 課程加分作業提醒 (2026-04-03) → yiidtw/aide-ee5184-ml
+  ✓ SYN: issue opened: https://github.com/yiidtw/aide-ee5184-ml/issues/6
+NEW ANNOUNCEMENT: [EE5184] 不要忘了以「生成式人工智慧與機器學習導論 2025」課程錄影進行預習 (2026-04-03) → yiidtw/aide-ee5184-ml
+  ✓ SYN: issue opened: https://github.com/yiidtw/aide-ee5184-ml/issues/7
+
+── Handshake: checking 3 pending acks ──
+  ⏳ PENDING: yiidtw/aide-ee5072-rl#11 — waiting (0.0h)
+  ⏳ PENDING: yiidtw/aide-ee5184-ml#6 — waiting (0.0h)
+  ⏳ PENDING: yiidtw/aide-ee5184-ml#7 — waiting (0.0h)
+  ── pending=3 resolved=0

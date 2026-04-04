@@ -1,0 +1,119 @@
+[00:00:20] cron: ntu triggered
+[00:00:20] cron-result: ntu → FAILED (exit 1)
+[00:00:20] cron-stdout: ntu: Usage: aide-skill <skill> <command> [args...]
+       aide-skill init [path]       — install hooks (merges with existing config)
+       aide-skill remove [path]     — remove hooks (preserves other config)
+       aide-skill session-start     — run SessionStart hook (used by Claude Code)
+       aide-skill registry <cmd>    — manage project registry
+       aide-skill list [--json]
+       aide-skill stats [days] [--all] [--health]
+       aide-skill dash [port]       — open web dashboard (default: 3939)
+       aide-skill vault <add|rm|list|env|get> [args...]
+
+Available skills:
+  agentguard-sync  — Sync AgentGuard issues/docs/memory — issues are SSOT, docs and memory auto-relink
+  appstore  — App Store Connect — iOS build, TestFlight, provisioning via debug Chrome
+  backlog-sync  — Backlog sync — detect completed items from git history
+  cad33  — CAD33 — SSH to NTU EDA server for commercial RTL simulation
+  cbf-lab  — CBF design lab — autonomous sweep, analyze, compare CBF variants
+  chrome  — Chrome debug connection + browser automation via chrome-devtools MCP (port 9222)
+  cloudflare  — Cloudflare — DNS records, workers, pages
+  cool  — Canvas LMS (COOL) — courses, assignments, announcements
+  cxfi-deploy  — CXFI.earth deploy — build and deploy to Cloudflare Workers via opennextjs-cloudflare
+  cxfi  — CXFI.earth LinkedIn 小編 — 以 CxFi 公司身份發文
+  datalake  — Google Drive datalake — save and search knowledge
+  debug-chrome  — Browser automation via debug Chrome CDP — Gmail, COOL, Twitter, any logged-in site
+  easychair  — EasyChair — conference paper reviews
+  email  — Email — POP3 inbox, SMTP send, search
+  eval  — Eval framework — graders and test runners for skills
+  factory  — Site factory — scaffold and deploy Vercel projects
+  firebase  — Firebase Hosting + Auth reference (archived — use CF Access instead)
+  formace-lab-review  — Paper release review — three variants, codex+gemini review, timestamped archival
+  formace-lab-wiki  — Formace Lab GitLab wiki — list, read, up
+[00:00:21] cron: cool-watch triggered
+[00:00:40] cron-result: cool-watch → ok (exit 0)
+[00:00:40] cron-stdout: cool-watch: Running COOL scan...
+Scan #70: 6 courses, 11 assignments, 123 files
+--- No changes since last scan ---
+
+Checking announcements...
+
+Checking submissions...
+
+State saved to /Users/ydwu/.aide/instances/ntu.yiidtw/cognition/cool-watch-state.json
+Registry fallback: 4 subscribers loaded
+
+── Handshake: checking 3 pending acks ──
+  ✓ ACK-ACK: yiidtw/aide-ee5072-rl#11 — 👀 💬
+  ⏳ PENDING: yiidtw/aide-ee5184-ml#6 — waiting (4.0h)
+  ✓ ACK-ACK: yiidtw/aide-ee5184-ml#7 — 👀 💬
+  ── pending=1 resolved=2
+[04:00:20] cron: cool-watch triggered
+[04:00:33] cron-result: cool-watch → ok (exit 0)
+[04:00:33] cron-stdout: cool-watch: Running COOL scan...
+Scan #71: 6 courses, 11 assignments, 123 files
+--- No changes since last scan ---
+
+Checking announcements...
+
+Checking submissions...
+
+State saved to /Users/ydwu/.aide/instances/ntu.yiidtw/cognition/cool-watch-state.json
+Registry fallback: 4 subscribers loaded
+
+── Handshake: checking 1 pending acks ──
+  ⏳ PENDING: yiidtw/aide-ee5184-ml#6 — waiting (8.0h)
+  ── pending=1 resolved=0
+[08:00:20] cron: cool-watch triggered
+[08:00:36] cron-result: cool-watch → ok (exit 0)
+[08:00:36] cron-stdout: cool-watch: Running COOL scan...
+Scan #72: 6 courses, 11 assignments, 123 files
+--- Changes since 2026-04-04 04:00:22 ---
+  Changed assignments (1):
+    機器學習 (EE5184): HW2 [2026-04-02 15:59] — submitted (10)
+
+Checking announcements...
+
+Checking submissions...
+
+State saved to /Users/ydwu/.aide/instances/ntu.yiidtw/cognition/cool-watch-state.json
+Registry fallback: 4 subscribers loaded
+GRADED: [EE5184] HW2 (score: 10.0) → yiidtw/aide-ee5184-ml
+NEW ANNOUNCEMENT: [EE5184] [ML HW2 成績公布] (2026-04-04) → yiidtw/aide-ee5184-ml
+  ⚠ DEDUP: issue already exists on yiidtw/aide-ee5184-ml: [COOL] [ML HW2 成績公布]
+
+── Handshake: checking 1 pending acks ──
+  ⏳ PENDING: yiidtw/aide-ee5184-ml#6 — waiting (12.0h)
+  ── pending=1 resolved=0
+[12:00:20] cron: cool-watch triggered
+[12:00:35] cron-result: cool-watch → ok (exit 0)
+[12:00:35] cron-stdout: cool-watch: Running COOL scan...
+Scan #73: 6 courses, 11 assignments, 123 files
+--- No changes since last scan ---
+
+Checking announcements...
+
+Checking submissions...
+
+State saved to /Users/ydwu/.aide/instances/ntu.yiidtw/cognition/cool-watch-state.json
+Registry fallback: 4 subscribers loaded
+
+── Handshake: checking 1 pending acks ──
+  ⏳ PENDING: yiidtw/aide-ee5184-ml#6 — waiting (16.0h)
+  ── pending=1 resolved=0
+[16:00:20] cron: cool-watch triggered
+[16:00:37] cron-result: cool-watch → ok (exit 0)
+[16:00:37] cron-stdout: cool-watch: Running COOL scan...
+Scan #76: 6 courses, 11 assignments, 123 files
+--- No changes since last scan ---
+
+Checking announcements...
+
+Checking submissions...
+
+State saved to /Users/ydwu/.aide/instances/ntu.yiidtw/cognition/cool-watch-state.json
+Registry fallback: 4 subscribers loaded
+
+── Handshake: checking 1 pending acks ──
+  ⏳ PENDING: yiidtw/aide-ee5184-ml#6 — waiting (20.0h)
+  ── pending=1 resolved=0
