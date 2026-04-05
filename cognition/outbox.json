@@ -1,14 +1,5 @@
 {
-  "pending": [
-    {
-      "repo": "yiidtw/aide-ee5184-ml",
-      "issue_number": "6",
-      "issue_url": "https://github.com/yiidtw/aide-ee5184-ml/issues/6",
-      "title": "[COOL] \u8ab2\u7a0b\u52a0\u5206\u4f5c\u696d\u63d0\u9192",
-      "sent_at": "2026-04-03T20:00:45Z",
-      "status": "syn"
-    }
-  ],
+  "pending": [],
   "history": [
     {
       "repo": "yiidtw/aide-ee5122-formal",
@@ -86,6 +77,14 @@
       "sent_at": "2026-04-03T20:00:48Z",
       "status": "acked",
       "acked_at": "2026-04-04T00:00:40Z"
+    },
+    {
+      "repo": "yiidtw/aide-ee5184-ml",
+      "issue_number": "6",
+      "issue_url": "https://github.com/yiidtw/aide-ee5184-ml/issues/6",
+      "title": "[COOL] \u8ab2\u7a0b\u52a0\u5206\u4f5c\u696d\u63d0\u9192",
+      "sent_at": "2026-04-03T20:00:45Z",
+      "status": "timeout"
     }
   ]
 }
