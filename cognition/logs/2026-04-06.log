@@ -31,9 +31,9 @@ Available skills:
   formace-lab-review  — Paper release review — three variants, codex+gemini review, timestamped archival
   formace-lab-wiki  — Formace Lab GitLab wiki — list, read, up
 [00:00:21] cron: cool-watch triggered
-[00:00:40] cron-result: cool-watch → ok (exit 0)
-[00:00:40] cron-stdout: cool-watch: Running COOL scan...
-Scan #78: 6 courses, 11 assignments, 123 files
+[00:00:36] cron-result: cool-watch → ok (exit 0)
+[00:00:36] cron-stdout: cool-watch: Running COOL scan...
+Scan #84: 6 courses, 11 assignments, 123 files
 --- No changes since last scan ---
 
 Checking announcements...
@@ -42,68 +42,5 @@ Checking submissions...
 
 State saved to /Users/ydwu/.aide/instances/ntu.yiidtw/cognition/cool-watch-state.json
 Registry fallback: 4 subscribers loaded
-
-── Handshake: checking 1 pending acks ──
-  ✗ TIMEOUT: yiidtw/aide-ee5184-ml#6 — no ack after 28h
-  ── pending=0 resolved=1
-[04:00:20] cron: cool-watch triggered
-[04:00:33] cron-result: cool-watch → ok (exit 0)
-[04:00:33] cron-stdout: cool-watch: Running COOL scan...
-Scan #79: 6 courses, 11 assignments, 123 files
---- No changes since last scan ---
-
-Checking announcements...
-
-Checking submissions...
-
-State saved to /Users/ydwu/.aide/instances/ntu.yiidtw/cognition/cool-watch-state.json
-Registry fallback: 4 subscribers loaded
-[08:00:20] cron: cool-watch triggered
-[08:00:33] cron-result: cool-watch → ok (exit 0)
-[08:00:33] cron-stdout: cool-watch: Running COOL scan...
-Scan #80: 6 courses, 11 assignments, 123 files
---- No changes since last scan ---
-
-Checking announcements...
-
-Checking submissions...
-
-State saved to /Users/ydwu/.aide/instances/ntu.yiidtw/cognition/cool-watch-state.json
-Registry fallback: 4 subscribers loaded
-[12:00:20] cron: cool-watch triggered
-[12:00:32] cron-result: cool-watch → ok (exit 0)
-[12:00:32] cron-stdout: cool-watch: Running COOL scan...
-Scan #81: 6 courses, 11 assignments, 123 files
---- No changes since last scan ---
-
-Checking announcements...
-
-Checking submissions...
-
-State saved to /Users/ydwu/.aide/instances/ntu.yiidtw/cognition/cool-watch-state.json
-Registry fallback: 4 subscribers loaded
-[16:00:20] cron: cool-watch triggered
-[16:00:38] cron-result: cool-watch → ok (exit 0)
-[16:00:38] cron-stdout: cool-watch: Running COOL scan...
-Scan #82: 6 courses, 11 assignments, 123 files
---- No changes since last scan ---
-
-Checking announcements...
-
-Checking submissions...
-
-State saved to /Users/ydwu/.aide/instances/ntu.yiidtw/cognition/cool-watch-state.json
-Registry fallback: 4 subscribers loaded
-[19:00:46] daily: cognition sync committed
-[20:00:20] cron: cool-watch triggered
-[20:00:36] cron-result: cool-watch → ok (exit 0)
-[20:00:36] cron-stdout: cool-watch: Running COOL scan...
-Scan #83: 6 courses, 11 assignments, 123 files
---- No changes since last scan ---
-
-Checking announcements...
-
-Checking submissions...
-
-State saved to /Users/ydwu/.aide/instances/ntu.yiidtw/cognition/cool-watch-state.json
-Registry fallback: 4 subscribers loaded
+[03:39:48] mcp-exec: mail search Alex
+[03:39:48] mcp-exec-result: mail → FAILED (exit 2)
