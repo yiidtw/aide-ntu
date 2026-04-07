@@ -1,5 +1,14 @@
 {
-  "pending": [],
+  "pending": [
+    {
+      "repo": "yiidtw/aide-ee5122-formal",
+      "issue_number": "11",
+      "issue_url": "https://github.com/yiidtw/aide-ee5122-formal/issues/11",
+      "title": "[COOL] \u65b0\u6a94\u6848: 2026-03-31_FM_lecture_06_exercise_solutions.pdf",
+      "sent_at": "2026-04-07T12:00:35Z",
+      "status": "syn"
+    }
+  ],
   "history": [
     {
       "repo": "yiidtw/aide-ee5122-formal",
@@ -85,6 +94,15 @@
       "title": "[COOL] \u8ab2\u7a0b\u52a0\u5206\u4f5c\u696d\u63d0\u9192",
       "sent_at": "2026-04-03T20:00:45Z",
       "status": "timeout"
+    },
+    {
+      "repo": "yiidtw/aide-ee5122-formal",
+      "issue_number": "12",
+      "issue_url": "https://github.com/yiidtw/aide-ee5122-formal/issues/12",
+      "title": "[COOL] \u65b0\u6a94\u6848: 2026-04-07_FM_lecture_07_exercise_solutions.pdf",
+      "sent_at": "2026-04-07T12:00:37Z",
+      "status": "acked",
+      "acked_at": "2026-04-07T16:00:34Z"
     }
   ]
 }

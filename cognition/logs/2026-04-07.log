@@ -31,9 +31,9 @@ Available skills:
   formace-lab-review  — Paper release review — three variants, codex+gemini review, timestamped archival
   formace-lab-wiki  — Formace Lab GitLab wiki — list, read, up
 [00:00:21] cron: cool-watch triggered
-[00:00:36] cron-result: cool-watch → ok (exit 0)
-[00:00:36] cron-stdout: cool-watch: Running COOL scan...
-Scan #84: 6 courses, 11 assignments, 123 files
+[00:00:34] cron-result: cool-watch → ok (exit 0)
+[00:00:34] cron-stdout: cool-watch: Running COOL scan...
+Scan #93: 6 courses, 12 assignments, 123 files
 --- No changes since last scan ---
 
 Checking announcements...
@@ -42,12 +42,10 @@ Checking submissions...
 
 State saved to /Users/ydwu/.aide/instances/ntu.yiidtw/cognition/cool-watch-state.json
 Registry fallback: 4 subscribers loaded
-[03:39:48] mcp-exec: mail search Alex
-[03:39:48] mcp-exec-result: mail → FAILED (exit 2)
 [04:00:20] cron: cool-watch triggered
 [04:00:31] cron-result: cool-watch → ok (exit 0)
 [04:00:31] cron-stdout: cool-watch: Running COOL scan...
-Scan #85: 6 courses, 11 assignments, 123 files
+Scan #94: 6 courses, 12 assignments, 123 files
 --- No changes since last scan ---
 
 Checking announcements...
@@ -57,9 +55,9 @@ Checking submissions...
 State saved to /Users/ydwu/.aide/instances/ntu.yiidtw/cognition/cool-watch-state.json
 Registry fallback: 4 subscribers loaded
 [08:00:20] cron: cool-watch triggered
-[08:00:33] cron-result: cool-watch → ok (exit 0)
-[08:00:33] cron-stdout: cool-watch: Running COOL scan...
-Scan #89: 6 courses, 11 assignments, 123 files
+[08:00:30] cron-result: cool-watch → ok (exit 0)
+[08:00:30] cron-stdout: cool-watch: Running COOL scan...
+Scan #96: 6 courses, 12 assignments, 125 files
 --- No changes since last scan ---
 
 Checking announcements...
@@ -68,15 +66,14 @@ Checking submissions...
 
 State saved to /Users/ydwu/.aide/instances/ntu.yiidtw/cognition/cool-watch-state.json
 Registry fallback: 4 subscribers loaded
-NEW ANNOUNCEMENT: [EE5184] Week 6公告 (Week 6 Announcement) (2026-04-06) → yiidtw/aide-ee5184-ml
-  ⚠ DEDUP: issue already exists on yiidtw/aide-ee5184-ml: [COOL] Week 6公告 (Week 6 Announcement)
-[12:00:16] cron: cool-watch triggered
-[12:00:28] cron-result: cool-watch → ok (exit 0)
-[12:00:28] cron-stdout: cool-watch: Running COOL scan...
-Scan #90: 6 courses, 12 assignments, 123 files
---- Changes since 2026-04-06 08:00:21 ---
-  Changed assignments (1):
-    正規方法 (EE5122): Quiz 1 [no due] — not submitted
+[12:00:20] cron: cool-watch triggered
+[12:00:40] cron-result: cool-watch → ok (exit 0)
+[12:00:40] cron-stdout: cool-watch: Running COOL scan...
+Scan #97: 6 courses, 12 assignments, 127 files
+--- Changes since 2026-04-07 08:00:21 ---
+  New/changed files (2):
+    正規方法 (EE5122): 2026-03-31_FM_lecture_06_exercise_solutions.pdf
+    正規方法 (EE5122): 2026-04-07_FM_lecture_07_exercise_solutions.pdf
 
 Checking announcements...
 
@@ -84,12 +81,21 @@ Checking submissions...
 
 State saved to /Users/ydwu/.aide/instances/ntu.yiidtw/cognition/cool-watch-state.json
 Registry fallback: 4 subscribers loaded
-NEW ASSIGNMENT: [EE5122] Quiz 1 → yiidtw/aide-ee5122-formal
-  ⚠ DEDUP: issue already exists on yiidtw/aide-ee5122-formal: [COOL] 新作業: Quiz 1
-[16:00:18] cron: cool-watch triggered
-[16:00:35] cron-result: cool-watch → ok (exit 0)
-[16:00:35] cron-stdout: cool-watch: Running COOL scan...
-Scan #91: 6 courses, 12 assignments, 123 files
+NEW FILE: [EE5122] 2026-03-31_FM_lecture_06_exercise_solutions.pdf (243 KB) → yiidtw/aide-ee5122-formal
+  ✓ SYN: issue opened: https://github.com/yiidtw/aide-ee5122-formal/issues/11
+NEW FILE: [EE5122] 2026-04-07_FM_lecture_07_exercise_solutions.pdf (66 KB) → yiidtw/aide-ee5122-formal
+  ✓ SYN: issue opened: https://github.com/yiidtw/aide-ee5122-formal/issues/12
+NEW ANNOUNCEMENT: [EE5122] Quiz 2 reminder (2026-04-07) → yiidtw/aide-ee5122-formal
+  ⚠ DEDUP: issue already exists on yiidtw/aide-ee5122-formal: [COOL] Quiz 2 reminder
+
+── Handshake: checking 2 pending acks ──
+  ⏳ PENDING: yiidtw/aide-ee5122-formal#11 — waiting (0.0h)
+  ⏳ PENDING: yiidtw/aide-ee5122-formal#12 — waiting (0.0h)
+  ── pending=2 resolved=0
+[16:00:20] cron: cool-watch triggered
+[16:00:34] cron-result: cool-watch → ok (exit 0)
+[16:00:34] cron-stdout: cool-watch: Running COOL scan...
+Scan #98: 6 courses, 12 assignments, 127 files
 --- No changes since last scan ---
 
 Checking announcements...
@@ -98,18 +104,8 @@ Checking submissions...
 
 State saved to /Users/ydwu/.aide/instances/ntu.yiidtw/cognition/cool-watch-state.json
 Registry fallback: 4 subscribers loaded
-[19:00:31] daily: cognition sync committed
-[20:00:20] cron: cool-watch triggered
-[20:00:37] cron-result: cool-watch → ok (exit 0)
-[20:00:37] cron-stdout: cool-watch: Running COOL scan...
-Scan #92: 6 courses, 12 assignments, 123 files
---- No changes since last scan ---
 
-Checking announcements...
-
-Checking submissions...
-
-State saved to /Users/ydwu/.aide/instances/ntu.yiidtw/cognition/cool-watch-state.json
-Registry fallback: 4 subscribers loaded
-NEW ANNOUNCEMENT: [EE5122] Quiz 1 grade release and office hour for quiz inspection (2026-04-06) → yiidtw/aide-ee5122-formal
-  ⚠ DEDUP: issue already exists on yiidtw/aide-ee5122-formal: [COOL] Quiz 1 grade release and office hour for quiz inspection
+── Handshake: checking 2 pending acks ──
+  ⏳ PENDING: yiidtw/aide-ee5122-formal#11 — waiting (4.0h)
+  ✓ ACK-ACK: yiidtw/aide-ee5122-formal#12 — 👀 💬
+  ── pending=1 resolved=1
