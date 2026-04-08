@@ -31,89 +31,9 @@ Available skills:
   formace-lab-review  — Paper release review — three variants, codex+gemini review, timestamped archival
   formace-lab-wiki  — Formace Lab GitLab wiki — list, read, up
 [00:00:21] cron: cool-watch triggered
-[00:00:34] cron-result: cool-watch → ok (exit 0)
-[00:00:34] cron-stdout: cool-watch: Running COOL scan...
-Scan #93: 6 courses, 12 assignments, 123 files
---- No changes since last scan ---
-
-Checking announcements...
-
-Checking submissions...
-
-State saved to /Users/ydwu/.aide/instances/ntu.yiidtw/cognition/cool-watch-state.json
-Registry fallback: 4 subscribers loaded
-[04:00:20] cron: cool-watch triggered
-[04:00:31] cron-result: cool-watch → ok (exit 0)
-[04:00:31] cron-stdout: cool-watch: Running COOL scan...
-Scan #94: 6 courses, 12 assignments, 123 files
---- No changes since last scan ---
-
-Checking announcements...
-
-Checking submissions...
-
-State saved to /Users/ydwu/.aide/instances/ntu.yiidtw/cognition/cool-watch-state.json
-Registry fallback: 4 subscribers loaded
-[08:00:20] cron: cool-watch triggered
-[08:00:30] cron-result: cool-watch → ok (exit 0)
-[08:00:30] cron-stdout: cool-watch: Running COOL scan...
-Scan #96: 6 courses, 12 assignments, 125 files
---- No changes since last scan ---
-
-Checking announcements...
-
-Checking submissions...
-
-State saved to /Users/ydwu/.aide/instances/ntu.yiidtw/cognition/cool-watch-state.json
-Registry fallback: 4 subscribers loaded
-[12:00:20] cron: cool-watch triggered
-[12:00:40] cron-result: cool-watch → ok (exit 0)
-[12:00:40] cron-stdout: cool-watch: Running COOL scan...
-Scan #97: 6 courses, 12 assignments, 127 files
---- Changes since 2026-04-07 08:00:21 ---
-  New/changed files (2):
-    正規方法 (EE5122): 2026-03-31_FM_lecture_06_exercise_solutions.pdf
-    正規方法 (EE5122): 2026-04-07_FM_lecture_07_exercise_solutions.pdf
-
-Checking announcements...
-
-Checking submissions...
-
-State saved to /Users/ydwu/.aide/instances/ntu.yiidtw/cognition/cool-watch-state.json
-Registry fallback: 4 subscribers loaded
-NEW FILE: [EE5122] 2026-03-31_FM_lecture_06_exercise_solutions.pdf (243 KB) → yiidtw/aide-ee5122-formal
-  ✓ SYN: issue opened: https://github.com/yiidtw/aide-ee5122-formal/issues/11
-NEW FILE: [EE5122] 2026-04-07_FM_lecture_07_exercise_solutions.pdf (66 KB) → yiidtw/aide-ee5122-formal
-  ✓ SYN: issue opened: https://github.com/yiidtw/aide-ee5122-formal/issues/12
-NEW ANNOUNCEMENT: [EE5122] Quiz 2 reminder (2026-04-07) → yiidtw/aide-ee5122-formal
-  ⚠ DEDUP: issue already exists on yiidtw/aide-ee5122-formal: [COOL] Quiz 2 reminder
-
-── Handshake: checking 2 pending acks ──
-  ⏳ PENDING: yiidtw/aide-ee5122-formal#11 — waiting (0.0h)
-  ⏳ PENDING: yiidtw/aide-ee5122-formal#12 — waiting (0.0h)
-  ── pending=2 resolved=0
-[16:00:20] cron: cool-watch triggered
-[16:00:34] cron-result: cool-watch → ok (exit 0)
-[16:00:34] cron-stdout: cool-watch: Running COOL scan...
-Scan #98: 6 courses, 12 assignments, 127 files
---- No changes since last scan ---
-
-Checking announcements...
-
-Checking submissions...
-
-State saved to /Users/ydwu/.aide/instances/ntu.yiidtw/cognition/cool-watch-state.json
-Registry fallback: 4 subscribers loaded
-
-── Handshake: checking 2 pending acks ──
-  ⏳ PENDING: yiidtw/aide-ee5122-formal#11 — waiting (4.0h)
-  ✓ ACK-ACK: yiidtw/aide-ee5122-formal#12 — 👀 💬
-  ── pending=1 resolved=1
-[19:00:41] daily: cognition sync committed
-[20:00:20] cron: cool-watch triggered
-[20:00:38] cron-result: cool-watch → ok (exit 0)
-[20:00:38] cron-stdout: cool-watch: Running COOL scan...
-Scan #99: 6 courses, 12 assignments, 127 files
+[00:00:37] cron-result: cool-watch → ok (exit 0)
+[00:00:37] cron-stdout: cool-watch: Running COOL scan...
+Scan #100: 6 courses, 12 assignments, 127 files
 --- No changes since last scan ---
 
 Checking announcements...
@@ -124,5 +44,69 @@ State saved to /Users/ydwu/.aide/instances/ntu.yiidtw/cognition/cool-watch-state
 Registry fallback: 4 subscribers loaded
 
 ── Handshake: checking 1 pending acks ──
-  ⏳ PENDING: yiidtw/aide-ee5122-formal#11 — waiting (8.0h)
+  ⏳ PENDING: yiidtw/aide-ee5122-formal#11 — waiting (12.0h)
   ── pending=1 resolved=0
+[04:00:20] cron: cool-watch triggered
+[04:00:33] cron-result: cool-watch → ok (exit 0)
+[04:00:33] cron-stdout: cool-watch: Running COOL scan...
+Scan #102: 6 courses, 12 assignments, 127 files
+--- No changes since last scan ---
+
+Checking announcements...
+
+Checking submissions...
+
+State saved to /Users/ydwu/.aide/instances/ntu.yiidtw/cognition/cool-watch-state.json
+Registry fallback: 4 subscribers loaded
+
+── Handshake: checking 1 pending acks ──
+  ⏳ PENDING: yiidtw/aide-ee5122-formal#11 — waiting (16.0h)
+  ── pending=1 resolved=0
+[08:00:20] cron: cool-watch triggered
+[08:00:32] cron-result: cool-watch → ok (exit 0)
+[08:00:32] cron-stdout: cool-watch: Running COOL scan...
+Scan #103: 6 courses, 12 assignments, 127 files
+--- No changes since last scan ---
+
+Checking announcements...
+
+Checking submissions...
+
+State saved to /Users/ydwu/.aide/instances/ntu.yiidtw/cognition/cool-watch-state.json
+Registry fallback: 4 subscribers loaded
+
+── Handshake: checking 1 pending acks ──
+  ⏳ PENDING: yiidtw/aide-ee5122-formal#11 — waiting (20.0h)
+  ── pending=1 resolved=0
+[12:00:20] cron: cool-watch triggered
+[12:00:34] cron-result: cool-watch → ok (exit 0)
+[12:00:34] cron-stdout: cool-watch: Running COOL scan...
+Scan #104: 6 courses, 12 assignments, 127 files
+--- No changes since last scan ---
+
+Checking announcements...
+
+Checking submissions...
+
+State saved to /Users/ydwu/.aide/instances/ntu.yiidtw/cognition/cool-watch-state.json
+Registry fallback: 4 subscribers loaded
+
+── Handshake: checking 1 pending acks ──
+  ⏳ PENDING: yiidtw/aide-ee5122-formal#11 — waiting (24.0h)
+  ── pending=1 resolved=0
+[16:00:20] cron: cool-watch triggered
+[16:00:33] cron-result: cool-watch → ok (exit 0)
+[16:00:33] cron-stdout: cool-watch: Running COOL scan...
+Scan #105: 6 courses, 12 assignments, 127 files
+--- No changes since last scan ---
+
+Checking announcements...
+
+Checking submissions...
+
+State saved to /Users/ydwu/.aide/instances/ntu.yiidtw/cognition/cool-watch-state.json
+Registry fallback: 4 subscribers loaded
+
+── Handshake: checking 1 pending acks ──
+  ✗ TIMEOUT: yiidtw/aide-ee5122-formal#11 — no ack after 28h
+  ── pending=0 resolved=1
